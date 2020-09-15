@@ -18,6 +18,7 @@
   ],
   "node-red": {
     "nodes": {
+      "forcedotcom": "force.js",
       "chatter-content": "force-chatter-content.js"
     }
   },
