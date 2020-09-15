@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-salesforce-chatter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A processing node of Node-RED nodes for Salesforce Chatter.",
   "dependencies": {
     "jsforce": "1.4.0",
