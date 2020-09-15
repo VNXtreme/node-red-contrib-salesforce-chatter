@@ -41,7 +41,7 @@ msg.payload = [
 ];
 ```
 
-You can also post image which is set in `msg.binaryBuffer` and `msg.filename`.
+You can also post image which is set in `msg.binaryBuffer` and `msg.filename` (include image extension).
 
 
 **Tip**： For more information on connected apps, see [Create a Connected App](https://help.salesforce.com/articleView?id=connected_app_create.htm) in the Salesforce Help.
