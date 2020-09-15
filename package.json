@@ -8,9 +8,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/VNXtreme/node-red-contrib-salesforce-chatter"
+    "url": "git+https://github.com/VNXtreme/node-red-contrib-salesforce-chatter.git"
   },
-  "license": "Apache",
+  "license": "MIT",
   "keywords": [
     "node-red",
     "chatter",
@@ -21,8 +21,8 @@
       "chatter-content": "force-chatter-content.js"
     }
   },
-  "author": {
-    "name": "Xtreme",
-    "email": "nghoang2013@gmail.com"
-  }
+  "author": "Xtreme <nghoang2013@gmail.com>",
+  "homepage": "https://github.com/VNXtreme/node-red-contrib-salesforce-chatter#readme",
+  "main": "force-chatter-content.js",
+  "devDependencies": {}
 }

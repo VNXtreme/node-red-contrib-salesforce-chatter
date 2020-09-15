@@ -1,14 +1,14 @@
-node-red-contrib-force
+node-red-contrib-salesforce-chatter
 ========================
 
 A processing node of <a href="http://nodered.org" target="_new">Node-RED</a> nodes for <a href="http://www.salesforce.com/" target="_new">Salesforce Chatter</a>
 
-[![NPM](https://nodei.co/npm/node-red-contrib-force.png?downloads=true)](https://nodei.co/npm/node-red-contrib-force/)
+[![NPM](https://nodei.co/npm/node-red-contrib-salesforce-chatter.png?downloads=true)](https://nodei.co/npm/node-red-contrib-salesforce-chatter/)
 
 Pre-requisites
 -------
 
-The node-red-contrib-force requires <a href="http://nodered.org" target="_new">Node-RED</a> to be installed.
+The node-red-contrib-salesforce-chatter requires <a href="http://nodered.org" target="_new">Node-RED</a> to be installed.
 
 
 Install
@@ -24,7 +24,7 @@ Restart your Node-RED instance, the force node appears in the palette and ready 
 Overview
 -------
 
-node-red-contrib-force contains the following modules.
+node-red-contrib-salesforce-chatter contains the following modules.
 
 #### force chatter content node
 
@@ -33,7 +33,7 @@ Post a message to Chatter. The message to be posted is set in `msg.payload` usin
 msg.payload = [
       {
             text: "This is the message 1",
-            mention: "chatty.00d2w000009yf8ueaw.9wfk1pviifmg@chatter.salesforce.com"
+            mention: "chatty.00d2w000009yf8ueaw.9wfk1pviifmg@chatter.salesforce.com"//email to mention
       },
       {
             text: "Message 2 without mentioning"
