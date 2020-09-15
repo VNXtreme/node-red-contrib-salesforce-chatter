@@ -1,7 +1,7 @@
 node-red-contrib-force
 ========================
 
-A processing node of <a href="http://nodered.org" target="_new">Node-RED</a> nodes for <a href="http://www.salesforce.com/" target="_new">Salesforce Chatter</a>.
+A processing node of <a href="http://nodered.org" target="_new">Node-RED</a> nodes for <a href="http://www.salesforce.com/" target="_new">Salesforce Chatter</a>
 
 [![NPM](https://nodei.co/npm/node-red-contrib-force.png?downloads=true)](https://nodei.co/npm/node-red-contrib-force/)
 
@@ -29,7 +29,8 @@ node-red-contrib-force contains the following modules.
 #### force chatter content node
 
 Post a message to Chatter. The message to be posted is set in `msg.payload` using the following structure:
-`msg.payload = [
+```js
+msg.payload = [
       {
             text: "This is the message 1",
             mention: "chatty.00d2w000009yf8ueaw.9wfk1pviifmg@chatter.salesforce.com"
@@ -37,7 +38,8 @@ Post a message to Chatter. The message to be posted is set in `msg.payload` usin
       {
             text: "Message 2 without mentioning"
       }
-];`
+];
+```
 
 You can also post image which is set in `msg.binaryBuffer` and `msg.filename`.
 
@@ -51,5 +53,5 @@ Acknowledgements
 The node-red-contrib-salesforce-chatter uses the following open source software:
 
 - [JSforce] (https://github.com/jsforce/jsforce): Salesforce API Library for JavaScript applications.
-- [Requet] (https://github.com/request/request): Simplified HTTP request client.
+- [Request] (https://github.com/request/request): Simplified HTTP request client.
 - [force-node] (https://github.com/joeartsea/node-red-contrib-force): A collection of Node-RED nodes for Salesforce/force.com.
