@@ -118,7 +118,7 @@
     oneditprepare: function () {
       if (globalVal) {
         var val = parseInt($("#node-input-loadUser").attr('value', 0));
-        // var val2 = parseInt($("#node-input-loadGroup").attr('value', 0));
+        var val2 = parseInt($("#node-input-loadGroup").attr('value', 0));
         globalVal = false;
       }
       chatterNode = RED.nodes.node(this.id);
@@ -131,21 +131,21 @@
       var selectel = $(".load-selected-row");
       var selected = selectedMention();
       val = parseInt($("#node-input-loadUser").val());
-      // val2 = parseInt($("#node-input-loadGroup").val());
+      val2 = parseInt($("#node-input-loadGroup").val());
       $("#node-input-loadUser")
         .button()
         .click(function () {
           var valTemp = ++val;
           $("#node-input-loadUser").val(valTemp);
-          // pollChatterMention2(valTemp, val2);
+          pollChatterMention2(valTemp, val2);
         });
-      // $("#node-input-loadGroup")
-      //   .button()
-      //   .click(function () {
-      //     var val2Temp = ++val2;
-      //     $("#node-input-loadGroup").val(val2Temp);
-      //     pollChatterMention2(val, val2Temp);
-      //   });
+      $("#node-input-loadGroup")
+        .button()
+        .click(function () {
+          var val2Temp = ++val2;
+          $("#node-input-loadGroup").val(val2Temp);
+          pollChatterMention2(val, val2Temp);
+        });
       $("#node-input-operation").change(function () {
         if (window.chatterNodeIntervalId) {
           window.clearTimeout(window.chatterNodeIntervalId);
@@ -203,7 +203,7 @@
     },
     oneditsave: function () {
       val = parseInt($("#node-input-loadUser").val());
-      // val2 = parseInt($("#node-input-loadGroup").val());
+      val2 = parseInt($("#node-input-loadGroup").val());
       var id = $("#node-input-operation option:selected").val();
       if (id == "post_feed") {
         var selected = $("#node-input-mention").val();
@@ -273,7 +273,7 @@
       flagnextPageUrlUser = false
     }
     if (lists.groups.nextPageUrl == null || !flagnextPageUrlGroup) {
-      // $("#node-input-loadGroup").attr("disabled", true).css('background', '#727272')
+      $("#node-input-loadGroup").attr("disabled", true).css('background', '#727272')
       flagnextPageUrlGroup = false
     }
     

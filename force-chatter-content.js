@@ -144,17 +144,18 @@ module.exports = function (RED) {
       clientsecret: forceConfig.credentials.clientsecret,
       accessToken: forceConfig.credentials.accessToken,
       refreshToken: forceConfig.credentials.refreshToken,
-      instanceUrl: forceConfig.credentials.instanceUrl,
+      instanceUrl: forceConfig.credentials.instanceUrl
     };
     RED.nodes.addCredentials(req.query.credentials, credentials);
 
     forceConfig.login(function (conn) {
-      conn.chatter.resource("/users/me/groups").retrieve(function (err, result) {
-        if (err) {
-          return res.send('{"error": "error:' + err.toString() + '"}');
-        }
-        res.send(result);
-      });
+      conn.chatter.resource("/users/me/groups").retrieve(
+        function (err, result) {
+          if (err) {
+            return res.send('{"error": "error:' + err.toString() + '"}');
+          }
+          res.send(result);
+        });
     }, {});
   });
 
@@ -163,9 +164,13 @@ module.exports = function (RED) {
     var forceNode = RED.nodes.getNode(req.query.id);
     var configNode = RED.nodes.getNode(req.query.credentials);
     var forceConfig = null;
-    var splitUser = res.socket.parser.incoming._parsedUrl.path.split("&userPage=");
+    var splitUser = res.socket.parser.incoming._parsedUrl.path.split(
+      "&userPage="
+    );
     var userPage = splitUser[1];
-    var splitGroup = res.socket.parser.incoming._parsedUrl.path.split("&groupPage=");
+    var splitGroup = res.socket.parser.incoming._parsedUrl.path.split(
+      "&groupPage="
+    );
     var groupPage = splitGroup[1];
     if (forceNode && forceNode.forceConfig) {
       forceConfig = forceNode.forceConfig;
@@ -187,26 +192,29 @@ module.exports = function (RED) {
       clientsecret: forceConfig.credentials.clientsecret,
       accessToken: forceConfig.credentials.accessToken,
       refreshToken: forceConfig.credentials.refreshToken,
-      instanceUrl: forceConfig.credentials.instanceUrl,
+      instanceUrl: forceConfig.credentials.instanceUrl
     };
     RED.nodes.addCredentials(req.query.credentials, credentials);
 
     forceConfig.login(function (conn, err, n) {
       var resData = { success: true };
-      conn.chatter.resource("/users?page=" + userPage + "&pageSize=50").retrieve(function (err, result) {
-        if (err) {
-          return res.send('{"error": "error:' + err.toString() + '"}');
-        }
-        resData.users = result;
-
-        conn.chatter.resource("/groups?page=" + groupPage + "&pageSize=50").retrieve(function (err, result) {
+      conn.chatter.resource("/users?page=" + userPage + "&pageSize=50").retrieve(
+        function (err, result) {
           if (err) {
             return res.send('{"error": "error:' + err.toString() + '"}');
           }
-          resData.groups = result;
-          res.send(resData);
+          resData.users = result;
+
+
+          conn.chatter.resource("/groups?page=" + groupPage + "&pageSize=50").retrieve(
+            function (err, result) {
+              if (err) {
+                return res.send('{"error": "error:' + err.toString() + '"}');
+              }
+              resData.groups = result;
+              res.send(resData);
+            });
         });
-      });
     }, {});
   });
 
@@ -222,18 +230,19 @@ module.exports = function (RED) {
         oauth2: {
           clientId: this.credentials.clientid,
           clientSecret: this.credentials.clientsecret,
-          redirectUri: null,
-        },
+          redirectUri: null
+        }
       });
       conn.initialize({
         accessToken: accessToken,
         refreshToken: this.credentials.refreshToken,
-        instanceUrl: instanceUrl,
+        instanceUrl: instanceUrl
       });
       callback(conn, error);
+
     } else if (this.logintype == "Username-Password") {
       var conn = new jsforce.Connection({
-        loginUrl: this.loginurl,
+        loginUrl: this.loginurl
       });
       var error;
 
@@ -246,7 +255,7 @@ module.exports = function (RED) {
     } else if (this.logintype == "Signed-Request") {
       var conn = new jsforce.Connection({
         accessToken: accessToken,
-        instanceUrl: instanceUrl,
+        instanceUrl: instanceUrl
       });
       callback(conn, error);
     }
