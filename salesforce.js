@@ -20,7 +20,7 @@ module.exports = function (RED) {
   var request = require('request');
   var crypto = require("crypto");
 
-  function ForceNode(n) {
+  function SalesforceNode(n) {
     RED.nodes.createNode(this, n);
     var node = this;
     var credentials = RED.nodes.getCredentials(n.id);
@@ -71,7 +71,7 @@ module.exports = function (RED) {
   }
 
 
-  RED.nodes.registerType('force', ForceNode, {
+  RED.nodes.registerType('salesforce', SalesforceNode, {
     credentials: {
       password: { type: 'password' },
       clientid: { type: 'password' },
