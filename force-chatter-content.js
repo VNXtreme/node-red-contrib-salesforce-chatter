@@ -268,7 +268,7 @@ module.exports = function (RED) {
       let textObj = payload[i];
 
       if (textObj.mention) {
-        let mentionedUser = mentionList.find((item) => item.username === textObj.mention);
+        let mentionedUser = mentionList.find((item) => item.email === textObj.mention);
 
         if (mentionedUser) {
           messageSegments.push({
